@@ -3,7 +3,7 @@
     "id": "伊勢神宮内宮正殿",
     "questionTitle": "これは何？",
     "category": "日本古代建築史",
-    "image": "images/images.jpg",
+    "image": "images/伊勢神宮内宮正殿.jpg",
     "materialLink": "日本古代建築史",
     "questionType": "photo-to-answer",
     "answerItems": [
@@ -37,7 +37,7 @@
     "id": "出雲大社本殿",
     "questionTitle": "これは何？",
     "category": "日本古代建築史",
-    "image": ".jpg",
+    "image": "images/出雲大社本殿.jpg",
     "materialLink": "日本古代建築史",
     "questionType": "photo-to-answer",
     "answerItems": [
@@ -71,7 +71,7 @@
     "id": "法隆寺東院伝法堂（でんぽうどう）",
     "questionTitle": "これは何？",
     "category": "奈良時代建築",
-    "image": ".jpg",
+    "image": "images/法隆寺東院伝法堂（でんぽうどう）.jpg",
     "materialLink": "日本古代建築史",
     "questionType": "photo-to-answer",
     "answerItems": [
@@ -94,16 +94,16 @@
     ]
   },
   {
-    "id": "伊勢神宮内宮正殿2",
+    "id": "賀茂別雷（かもわけいかづち）神社本殿・権殿",
     "questionTitle": "これは何？",
     "category": "日本古代建築史",
-    "image": "images/images.jpg",
+    "image": "images/賀茂別雷（かもわけいかづち）神社本殿・権殿.jpg",
     "materialLink": "日本古代建築史",
     "questionType": "photo-to-answer",
     "answerItems": [
       {
         "label": "建物名",
-        "value": "伊勢神宮内宮正殿"
+        "value": "賀茂別雷（かもわけいかづち）神社本殿・権殿"
       },
       {
         "label": "造り",
@@ -124,6 +124,32 @@
       {
         "label": "特徴",
         "value": "東西に隣接する南北に細長い二つの敷地のうち、20年ごとに交替で一方の敷地を用いて、式年遷宮が繰り返されています。"
+      }
+    ]
+  },
+  {
+    "id": "新薬師寺",
+    "questionTitle": "これは何？",
+    "category": "奈良時代建築",
+    "image": "images/新薬師寺.jpg",
+    "materialLink": "日本古代建築史",
+    "questionType": "photo-to-answer",
+    "answerItems": [
+      {
+        "label": "建物名",
+        "value": "新薬師寺"
+      },
+      {
+        "label": "平面形式",
+        "value": "本堂は桁行5間、梁間3間"
+      },
+      {
+        "label": "屋根形式",
+        "value": "屋根形式は入母屋。"
+      },
+      {
+        "label": "特徴",
+        "value": "光明皇后によって設立された寺院です。"
       }
     ]
   }
