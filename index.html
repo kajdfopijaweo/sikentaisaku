@@ -32,7 +32,6 @@
     let questions = [];
     let currentQuestionIndex = 0;
     let isAnswerVisible = false;
-    const questionCache = new Map();
 
     async function loadCategories() {
       const response = await fetch("category.json");
@@ -40,22 +39,11 @@
     }
 
     async function loadQuestions(category) {
-      if (questionCache.has(category)) {
-        questions = questionCache.get(category);
-      return;
-      }
-
       const filePath =
         "data/" + encodeURIComponent(category) + ".json";
 
       const response = await fetch(filePath);
-
-      if (!response.ok) {
-        throw new Error(`${filePath}を読み込めませんでした。`);
-      }
-
       questions = await response.json();
-      questionCache.set(category, questions);
     }
     
     async function renderCategoryButtons() {
