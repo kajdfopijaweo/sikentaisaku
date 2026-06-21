@@ -2,7 +2,7 @@
   {
     "id": "伊勢神宮内宮正殿",
     "questionTitle": "これは何？",
-    "category": "日本古代建築史",
+    "category": "日本古代建築",
     "image": "images/伊勢神宮内宮正殿.jpg",
     "materialLink": "日本古代建築",
     "questionType": "photo-to-answer",
@@ -38,7 +38,7 @@
     "questionTitle": "これは何？",
     "category": "日本古代建築",
     "image": "images/出雲大社本殿.jpg",
-    "materialLink": "日本古代建築史",
+    "materialLink": "日本古代建築",
     "questionType": "photo-to-answer",
     "answerItems": [
       {
@@ -72,7 +72,7 @@
     "questionTitle": "これは何？",
     "category": "奈良時代建築",
     "image": "images/法隆寺東院伝法堂（でんぽうどう）.jpg",
-    "materialLink": "日本古代建築史",
+    "materialLink": "奈良時代建築",
     "questionType": "photo-to-answer",
     "answerItems": [
       {
@@ -98,7 +98,7 @@
     "questionTitle": "これは何？",
     "category": "日本古代建築",
     "image": "images/賀茂別雷（かもわけいかづち）神社本殿・権殿.jpg",
-    "materialLink": "日本古代建築史",
+    "materialLink": "奈良時代建築",
     "questionType": "photo-to-answer",
     "answerItems": [
       {
@@ -132,7 +132,7 @@
     "questionTitle": "これは何？",
     "category": "奈良時代建築",
     "image": "images/新薬師寺.jpg",
-    "materialLink": "日本古代建築史",
+    "materialLink": "奈良時代建築",
     "questionType": "photo-to-answer",
     "answerItems": [
       {
