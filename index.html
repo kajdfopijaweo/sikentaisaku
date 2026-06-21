@@ -55,20 +55,19 @@
     async function showQuestionById(questionId) {
       await loadQuestions();
 
-      const question = questions.find(item => item.id === questionId);
       const questionIndex = questions.findIndex(item => item.id === questionId);
       if (questionIndex === -1) return;
 
       currentQuestionIndex = questionIndex;
-      const question = questions[currentQuestionIndex];
+      currentQuestion = questions[currentQuestionIndex];
       isAnswerVisible = false;
 
-      document.getElementById("questionTitle").textContent = question.questionTitle;
-      document.getElementById("questionImage").src = question.image;
+      document.getElementById("questionTitle").textContent = currentQuestion.questionTitle;
+      document.getElementById("questionImage").src = currentQuestion.image;
 
       renderAnswerItems();
     }
-    
+
     function renderAnswerItems() {
       if (!currentQuestion) return;
 
@@ -81,7 +80,7 @@
 
       document.getElementById("answerLabels").innerHTML = labelsHtml;
     }
-    
+
     function toggleAnswerValues() {
       isAnswerVisible = !isAnswerVisible;
       renderAnswerItems();
