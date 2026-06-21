@@ -9,13 +9,12 @@
 
   <section id="p1">
     <h1>Anki!</h1>
-    <button onclick="showPage('p2')">建築史</button>
-    <button onclick="showPage('p4')">各部寸法</button>
+    <div id="categoryButtons"></div>
   </section>
 
   <section id="p2" hidden>
     <button onclick="showPage('p1')">戻る</button>
-    <h1>建築史</h1>
+    <h1 id="categoryTitle">建築史</h1>
 
     <p id="questionTitle"></p>
     <img id="questionImage" alt="建築写真" width="300">
@@ -28,21 +27,51 @@
   </section>
 
   <script>
+    let categories = [];
     let allQuestions = [];
     let questions = [];
     let currentQuestionIndex = 0;
     let isAnswerVisible = false;
+
+    async function loadCategories() {
+      const response = await fetch("category.json");
+      categories = await response.json();
+    }
 
     async function loadQuestions(category) {
       if (allQuestions.length === 0) {
         const response = await fetch("photo-database.json");
         allQuestions = await response.json();
       }
+
       questions = allQuestions.filter(question => question.category === category);
+    }
+
+    async function renderCategoryButtons() {
+      await loadCategories();
+
+      document.getElementById("categoryButtons").innerHTML = categories
+        .map(category => {
+          return `<button onclick="startCategory('${category}')">${category}</button>`;
+        })
+        .join("");
+    }
+
+    async function startCategory(category) {
+      await loadQuestions(category);
+
+      currentQuestionIndex = 0;
+      isAnswerVisible = false;
+
+      document.getElementById("categoryTitle").textContent = category;
+
+      showPage("p2");
+      renderQuestion();
     }
 
     function renderQuestion() {
       const question = questions[currentQuestionIndex];
+      if (!question) return;
 
       document.getElementById("questionTitle").textContent = question.questionTitle;
       document.getElementById("questionImage").src = question.image;
@@ -66,28 +95,23 @@
       renderQuestion();
     }
 
-    function previousQuestion(){
-      if (currentQuestionIndex > 0){
+    function previousQuestion() {
+      if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
       }
+
       isAnswerVisible = false;
       renderQuestion();
     }
 
-    async function showPage(pageId) {
+    function showPage(pageId) {
       document.getElementById("p1").hidden = true;
       document.getElementById("p2").hidden = true;
-      document.getElementById("p4").hidden = true;
 
       document.getElementById(pageId).hidden = false;
-
-      if (pageId === "p2") {
-        await loadQuestions("日本古代建築史");
-        currentQuestionIndex = 0;
-        isAnswerVisible = false;
-        renderQuestion();
-      }
     }
+
+    renderCategoryButtons();
   </script>
 
 </body>
