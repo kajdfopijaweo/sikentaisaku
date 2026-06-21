@@ -94,18 +94,17 @@ button:active {
 
 #questionImage {
   display: block;
-  width: min(75vw, 382px);
-  max-height: 34vh;
+  width: calc(100% - 16px);
   height: auto;
-  margin: 48px auto 38px;
+  margin: 8px 8px 8px;
   object-fit: contain;
 }
 
 #answerLabels {
   margin: 0 10px;
   padding-bottom: 24px;
-  font-size: clamp(18px, 4vw, 24px);
-  line-height: 1.55;
+  font-size: 24px;
+  line-height: 1.35;
 }
 
 #answerLabels p {
