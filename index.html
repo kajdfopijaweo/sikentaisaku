@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>建築試験対策</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
     <div id="answerLabels"></div>
 
     <button>資料</button>
-    <button onclick="toggleAnswer()">表示</button>
+    <button id="answerToggleButton" onclick="toggleAnswer()">表示</button>
     <button onclick="previousQuestion()">前へ</button>
     <button onclick="nextQuestion()">次へ</button>
   </section>
@@ -81,6 +82,7 @@
       document.getElementById("answerLabels").innerHTML = question.answerItems
         .map(item => `<p>${item.label}：${isAnswerVisible ? item.value : ""}</p>`)
         .join("");
+      document.getElementById("answerToggleButton").classList.toggle("is-visible", isAnswerVisible);
     }
 
     function toggleAnswer() {
