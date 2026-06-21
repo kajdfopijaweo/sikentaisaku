@@ -29,7 +29,6 @@
 
   <script>
     let categories = [];
-    let allQuestions = [];
     let questions = [];
     let currentQuestionIndex = 0;
     let isAnswerVisible = false;
@@ -40,24 +39,36 @@
     }
 
     async function loadQuestions(category) {
-      if (allQuestions.length === 0) {
-        const response = await fetch("photo-database.json");
-        allQuestions = await response.json();
+      if (questionCache.has(category)) {
+        questions = questionCache.get(category);
+      return;
       }
 
-      questions = allQuestions.filter(question => question.category === category);
-    }
+      const filePath =
+        "data/" + encodeURIComponent(category) + ".json";
 
+      const response = await fetch(filePath);
+
+      if (!response.ok) {
+        throw new Error(`${filePath}を読み込めませんでした。`);
+      }
+
+      questions = await response.json();
+      questionCache.set(category, questions);
+    }
+    
     async function renderCategoryButtons() {
       await loadCategories();
 
-      document.getElementById("categoryButtons").innerHTML = categories
-        .map(category => {
-          return `<button onclick="startCategory('${category}')">${category}</button>`;
-        })
-        .join("");
+      document.getElementById("categoryButtons").innerHTML =
+        categories
+          .map(category => `
+            <button onclick="startCategory('${category}')">
+              ${category}
+            </button>
+          `)
+          .join("");
     }
-
     async function startCategory(category) {
       await loadQuestions(category);
 
