@@ -74,7 +74,7 @@
       const question = questions[currentQuestionIndex];
       if (!question) return;
 
-      document.getElementById("questionTitle").textContent = "Q" + (currentQuestionIndex+1) + question.questionTitle;
+      document.getElementById("questionTitle").textContent = "Q" + (currentQuestionIndex+1)+ " " + question.questionTitle;
 
       document.getElementById("questionImage").src =
         question.image;
