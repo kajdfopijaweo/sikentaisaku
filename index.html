@@ -74,13 +74,31 @@
       const question = questions[currentQuestionIndex];
       if (!question) return;
 
-      document.getElementById("questionTitle").textContent = "Q" + (currentQuestionIndex+1) + " " + question.questionTitle;
-      document.getElementById("questionImage").src = question.image;
+      document.getElementById("questionTitle").textContent =
+        question.questionTitle;
 
-      document.getElementById("answerLabels").innerHTML = question.answerItems
-        .map(item => `<p>${item.label}：${isAnswerVisible ? item.value : ""}</p>`)
-        .join("");
-      document.getElementById("answerToggleButton").classList.toggle("is-visible", isAnswerVisible);
+      document.getElementById("questionImage").src =
+        question.image;
+
+      document.getElementById("answerLabels").innerHTML =
+        question.answerItems
+          .map(item => `
+            <div class="answer-item">
+              <span class="answer-label">${item.label}：</span>
+              <span class="answer-value ${isAnswerVisible ? "" : "is-hidden"}">
+                ${item.value}
+              </span>
+            </div>
+          `)
+          .join("");
+
+      const toggleButton =
+        document.getElementById("answerToggleButton");
+
+      toggleButton.classList.toggle(
+        "is-visible",
+        isAnswerVisible
+      );
     }
 
     function toggleAnswer() {
