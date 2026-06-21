@@ -17,6 +17,7 @@
     <h1 id="categoryTitle"></h1>
 
     <p id="questionTitle"></p>
+    <p id="questionNumber"></p>
     <img id="questionImage" alt="建築写真" width="300">
     <div id="answerLabels"></div>
 
@@ -74,6 +75,7 @@
       if (!question) return;
 
       document.getElementById("questionTitle").textContent = question.questionTitle;
+      document.getElementById("questionNumber").textContent = currentQuestionIndex + 1 + "/" +question.length;
       document.getElementById("questionImage").src = question.image;
 
       document.getElementById("answerLabels").innerHTML = question.answerItems
